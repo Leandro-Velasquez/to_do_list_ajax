@@ -30,5 +30,13 @@
 
             $sql->execute();
         }
+
+        public function tareaRealizada($id){
+            $sql = $this->pdo->prepare("UPDATE to_do_list_table SET tarea_hecha=1 WHERE id=:id");
+
+            $sql->bindParam(":id", $id, PDO::PARAM_INT);
+
+            $sql->execute();
+        }
     }
 ?>
