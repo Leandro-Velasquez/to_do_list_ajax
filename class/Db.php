@@ -22,5 +22,13 @@
 
             $sql->execute();
         }
+
+        public function eliminarTarea($id){
+            $sql = $this->pdo->prepare("DELETE FROM to_do_list_table WHERE id=:id");
+
+            $sql->bindParam(":id", $id);
+
+            $sql->execute();
+        }
     }
 ?>
