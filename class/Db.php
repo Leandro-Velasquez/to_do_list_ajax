@@ -15,6 +15,12 @@
             }
         }
 
+        public function agregarTarea($tarea){
+            $sql = $this->pdo->prepare("INSERT INTO to_do_list_table(tarea, tarea_hecha) VALUES (:tarea, 0)");
 
+            $sql->bindParam(":tarea", $tarea, PDO::PARAM_STR);
+
+            $sql->execute();
+        }
     }
 ?>
