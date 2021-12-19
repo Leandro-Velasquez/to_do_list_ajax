@@ -38,5 +38,11 @@
 
             $sql->execute();
         }
+
+        public function mostrarTareasPendientes(){
+            $sql = $this->pdo->query("SELECT tarea, tarea_hecha FROM to_do_list_table WHERE tarea_hecha=0");
+
+            $tareas =  $sql->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
 ?>
