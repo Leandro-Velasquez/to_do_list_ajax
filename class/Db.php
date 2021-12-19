@@ -43,6 +43,40 @@
             $sql = $this->pdo->query("SELECT tarea, tarea_hecha FROM to_do_list_table WHERE tarea_hecha=0");
 
             $tareas =  $sql->fetchAll(PDO::FETCH_ASSOC);
+
+            return $this->armarString($tareas);
+        }
+
+        public function armarString($tareas){
+            if(count($tareas) > 0){
+                $cadena = null;
+                $cadena = '<ul class="lista">';
+                for($i = 0; $i < count($tareas); $i++){
+                    $cadena .= "<li>";
+                    foreach($tareas[$i] as $key => $value){
+                        $classTarea = "";
+                        if($key == "tarea_hecha"){
+                            if($value == 0){
+                                $classTarea = "tarea-no-realizada";
+                                continue;
+                            }
+                            else{
+                                $classTarea = "tarea-cumplida";
+                                continue;
+                            }
+                        }
+                        if($key == "tarea"){
+                            $cadena .= '<p class="' . $classTarea . '">' . $value . '</p>';
+                        }
+                    }
+                    $cadena .= "</li>";
+                }
+                $cadena .= "</ul>";
+                return $cadena;
+            }
+            else{
+                return null;
+            }
         }
     }
 ?>
