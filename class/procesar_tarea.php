@@ -3,5 +3,14 @@
 
     $db = new Db();
 
-    
+    if(isset($_POST["tarea"])){
+        $db->agregarTarea($_POST["tarea"]);
+        echo $db->mostrarTareasPendientes();
+    }
+    else if(isset($_POST["tareaRealizada"]) && $_POST["tareaRealizada"] == true){
+        $db->tareaRealizada($_POST["id"]);
+    }
+    else{
+        echo $db->mostrarTareasPendientes();
+    }
 ?>
