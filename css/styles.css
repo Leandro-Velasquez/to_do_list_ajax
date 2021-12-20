@@ -10,7 +10,8 @@ body{
     margin: auto;
     padding: 10px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    /*justify-content: center;*/
     background-color: #F5F5F5;
 }
 .form {
@@ -18,7 +19,7 @@ body{
 }
 .form__input-text {
     height: 31px;
-    width: 350px;
+    width: 385px;
     padding: 0px 5px;
     border: 1px solid #afadad;
     border-radius: 5px;
@@ -38,4 +39,46 @@ body{
 .form__input-button:hover {
     background-color: #407c47;
     transition: .4s;
+}
+
+
+
+
+
+/*ESTILOS LISTA DE TAREAS*/
+.lista {
+    padding: 0;
+    list-style-type: none;
+}
+.lista__li{
+    margin: 8px 0px;
+    padding: 6px 4px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border: 1px solid #969696;
+    color: #8d8b8b;
+}
+.tarea-cumplida{
+
+}
+.tarea-no-realizada{
+    width: 90%;
+    margin: 0;
+}
+.button-marcar-tarea-realizada {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    background-color: #519259;
+    border: none;
+    cursor: pointer;
+}
+.button-marcar-tarea-realizada:hover {
+    background-color: #407c47;
+    transition: .3s;
+}
+.fa-check {
+    color: white;
 }
