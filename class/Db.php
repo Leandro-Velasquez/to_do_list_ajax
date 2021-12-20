@@ -40,7 +40,7 @@
         }
 
         public function mostrarTareasPendientes(){
-            $sql = $this->pdo->query("SELECT tarea FROM to_do_list_table WHERE tarea_hecha=0");
+            $sql = $this->pdo->query("SELECT id, tarea FROM to_do_list_table WHERE tarea_hecha=0");
 
             $tareas =  $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -52,10 +52,14 @@
                 $cadena = null;
                 $cadena = '<ul class="lista">';
                 for($i = 0; $i < count($tareas); $i++){
+                    $id = null;
                     $cadena .= '<li class="lista__li">';
                     foreach($tareas[$i] as $key => $value){
+                        if($key == "id"){
+                            $id = $value;
+                        }
                         if($key == "tarea"){
-                            $cadena .= '<p class="tarea-no-realizada">' . $value . '</p>' . '<button id="button-check-tarea" class="button-marcar-tarea-realizada"><i class="fas fa-check"></i></button>';
+                            $cadena .= '<p id=' . $id . ' class="tarea-no-realizada">' . $value . '</p>' . '<i class="fas fa-check"></i>';
                         }
                     }
                     $cadena .= "</li>";
