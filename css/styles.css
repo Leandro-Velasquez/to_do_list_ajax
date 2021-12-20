@@ -66,19 +66,13 @@ body{
     width: 90%;
     margin: 0;
 }
-.button-marcar-tarea-realizada {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 20px;
+.fa-check {
+    padding: 0px 2px;
     background-color: #519259;
-    border: none;
+    color: white;
     cursor: pointer;
 }
-.button-marcar-tarea-realizada:hover {
+.fa-check:hover {
     background-color: #407c47;
     transition: .3s;
-}
-.fa-check {
-    color: white;
 }
