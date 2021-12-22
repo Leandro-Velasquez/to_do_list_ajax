@@ -41,8 +41,53 @@ body{
     transition: .4s;
 }
 
-
-
+/*ESTILOS OPCIONES VISTAS*/
+.opciones-vista {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: sans-serif;
+    margin-top: 16px;
+}
+.opciones-vista__radio {
+    display: none;
+}
+.opciones-vista__label {
+    padding-left: 1.3em;
+    position: relative;
+}
+.opciones-vista__label:nth-child(2){
+    margin-right: 10px;
+}
+.opciones-vista__label::before {
+    content: "";
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 0.8em;
+    height: 0.8em;
+    position: absolute;
+    left: 0px;
+}
+.opciones-vista__radio:checked + label:before {
+    border-color: #519259;
+    color: #519259;
+    content: '\f00c';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+.opciones-vista__button {
+    padding: 8px 12px;
+    color: white;
+    background-color: #519259;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.opciones-vista__button:hover {
+    background-color: #407c47;
+    transition: .4s;
+}
 
 
 /*ESTILOS LISTA DE TAREAS*/
