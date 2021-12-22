@@ -14,8 +14,17 @@
             <input class="form__input-text" name="tarea" type="text" autocomplete="off">
             <input class="form__input-button" type="submit" value="Agregar">
         </form>
+        <div class="opciones-vista">
+            <div>
+                <input id="tareas-pendientes" class="opciones-vista__radio" name="ver-tareas" type="radio" checked>
+                <label class="opciones-vista__label" for="tareas-pendientes">Tareas pendientes</label>
+                <input id="tareas-realizadas" class="opciones-vista__radio" name="ver-tareas" type="radio">
+                <label class="opciones-vista__label" for="tareas-realizadas">Tareas realizadas</label>
+            </div>
+            <input class="opciones-vista__button" type="submit" value="Aplicar filtro">
+        </div>
         <div class="view-list">
-
+            
         </div>
     </div>
     <script src="js/scripts.js"></script>
