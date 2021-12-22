@@ -121,3 +121,8 @@ body{
     background-color: #407c47;
     transition: .3s;
 }
+.disableButton {
+    background-color: #969696;
+    pointer-events: none; 
+    cursor: default;
+}
