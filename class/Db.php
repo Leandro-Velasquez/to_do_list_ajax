@@ -71,5 +71,15 @@
                 return null;
             }
         }
+
+        public function mostrarTareasRealizadas(){
+            $sql = $this->pdo->query("SELECT id, tarea FROM to_do_list_table WHERE tarea_hecha=1");
+
+            $tareas =  $sql->fetchAll(PDO::FETCH_ASSOC);
+
+            return $tareas;
+        }
+
+        
     }
 ?>
