@@ -46,3 +46,30 @@ const checkTarea = () => {
         }
     })
 }
+
+const aplicarFiltro = () => {
+    const radioTareasPendientes = document.getElementById("tareas-pendientes");
+    const radioTareasRealizadas = document.getElementById("tareas-realizadas");
+    const buttonFiltro = document.querySelector(".opciones-vista__button");
+    buttonFiltro.addEventListener("click", () => {
+        if(radioTareasRealizadas.checked == true){
+            const xml = new XMLHttpRequest();
+            xml.open("POST", "./class/procesar_tarea.php", true);
+            xml.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            xml.addEventListener("load", () => {
+                viewList.innerHTML = xml.responseText;
+            })
+            xml.send(`mostrarTareasRealizadas=${radioTareasRealizadas.checked}`);
+        }
+        else{
+            const xml = new XMLHttpRequest();
+            xml.open("POST", "./class/procesar_tarea.php", true);
+            xml.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            xml.addEventListener("load", () => {
+                viewList.innerHTML = xml.responseText;
+            })
+            xml.send(`mostrarTareasPendientes=${radioTareasPendientes.checked}`);
+        }
+    })
+}
+aplicarFiltro();
