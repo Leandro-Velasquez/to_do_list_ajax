@@ -77,9 +77,32 @@
 
             $tareas =  $sql->fetchAll(PDO::FETCH_ASSOC);
 
-            return $tareas;
+            return $this->armarStringTareasRealizadas($tareas);
         }
 
-        
+        public function armarStringTareasRealizadas($tareas){
+            if(count($tareas) > 0){
+                $cadena = null;
+                $cadena = '<ul class="lista">';
+                for($i = 0; $i < count($tareas); $i++){
+                    $id = null;
+                    $cadena .= '<li class="lista__li">';
+                    foreach($tareas[$i] as $key => $value){
+                        if($key == "id"){
+                            $id = $value;
+                        }
+                        if($key == "tarea"){
+                            $cadena .= '<p id=' . $id . ' class="tarea-no-realizada">' . $value . '</p>' . '<i class="fas fa-check disableButton"></i>';
+                        }
+                    }
+                    $cadena .= "</li>";
+                }
+                $cadena .= "</ul>";
+                return $cadena;
+            }
+            else{
+                return null;
+            }
+        }
     }
 ?>
