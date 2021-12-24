@@ -11,6 +11,8 @@ formulario.addEventListener("submit", (e) => {
     xml.addEventListener("load", (e) => {
         if(xml.status == 200){
             formulario.reset();
+            const radioTareasPendientes = document.getElementById("tareas-pendientes");
+            radioTareasPendientes.checked = true;
             mostrarTareas();
         }
     });
